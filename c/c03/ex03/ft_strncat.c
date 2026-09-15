@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgirault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/14 09:47:15 by fgirault          #+#    #+#             */
-/*   Updated: 2026/09/15 05:15:53 by fgirault         ###   ########.fr       */
+/*   Created: 2026/09/15 05:17:52 by fgirault          #+#    #+#             */
+/*   Updated: 2026/09/15 05:56:45 by fgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-char	*ft_strlowcase(char *str);
+char	*ft_strncat(char *dest, char *src, unsigned int nb);
 
 /*int	main(void)
 {
-	char	str[] = "tEST";
-
-	printf("%s", ft_strlowcase(str));
+	char	dest[10] = "Hello";
+	printf("%s", ft_strncat(dest, "World", 2));
 	return (0);
 }*/
 
-char	*ft_strlowcase(char *str)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
+	j = 0;
+	while (dest[i] != '\0')
 		i++;
+	while (src[j] != '\0' && j < nb)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	return (str);
+	dest[i] = '\0';
+	return (dest);
 }

@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgirault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/14 09:47:15 by fgirault          #+#    #+#             */
-/*   Updated: 2026/09/15 05:15:53 by fgirault         ###   ########.fr       */
+/*   Created: 2026/09/15 06:00:39 by fgirault          #+#    #+#             */
+/*   Updated: 2026/09/15 06:58:21 by fgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdio.h>
 
-char	*ft_strlowcase(char *str);
+char	*ft_strstr(char *str, char *to_find);
 
-/*int	main(void)
+int	main(void)
 {
-	char	str[] = "tEST";
-
-	printf("%s", ft_strlowcase(str));
+	printf("%s", ft_strstr("testtest", "st"));
 	return (0);
-}*/
+}
 
-char	*ft_strlowcase(char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (str[i] != '\0')
+	count = 0;
+	while (*str != '\0')
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
-		i++;
+		if (*str == *to_find)
+		{
+			if (*to_find == '\0')
+				return (str - count);
+			to_find++;
+			count++;
+			str++;
+		}
+		else
+		{
+			to_find -= count;
+			count = 0;
+			str++;
+		}
 	}
-	return (str);
+	return (NULL);
 }
