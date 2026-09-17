@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgirault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/15 06:00:39 by fgirault          #+#    #+#             */
-/*   Updated: 2026/09/15 13:03:21 by fgirault         ###   ########.fr       */
+/*   Created: 2026/09/10 06:35:36 by fgirault          #+#    #+#             */
+/*   Updated: 2026/09/16 14:30:17 by fgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find);
+void	ft_print_alphabet(void);
 
-int	main(void)
+/*int	main(void)
 {
-	printf("%p", ft_strstr("hello worle", "worl"));
+	ft_print_alphabet();
 	return (0);
-}
+}*/
 
-char	*ft_strstr(char *str, char *to_find)
+void	ft_print_alphabet(void)
 {
-	printf("%p\n", str);
-	int	i;
-	int	j;
+	char	c;
 
-	i = 0;
-	j = 0;
-	while (str[i] != '\0')
+	c = 'a';
+	while (c <= 'z')
 	{
-		if (str[i] == to_find[j])
-		{
-			if (to_find[j + 1] == '\0')
-				return (&str[i - j]);
-			j++;
-		}
-		else
-			j = 0;
-		i++;
+		write(1, &c, 1);
+		c++;
 	}
-	return (NULL);
 }

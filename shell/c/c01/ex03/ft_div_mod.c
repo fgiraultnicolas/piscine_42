@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgirault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/15 06:00:39 by fgirault          #+#    #+#             */
-/*   Updated: 2026/09/15 13:03:21 by fgirault         ###   ########.fr       */
+/*   Created: 2026/09/10 11:15:07 by fgirault          #+#    #+#             */
+/*   Updated: 2026/09/10 13:14:23 by fgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
-char	*ft_strstr(char *str, char *to_find);
+void	ft_div_mod(int a, int b, int *div, int *mod);
 
+/*
 int	main(void)
 {
-	printf("%p", ft_strstr("hello worle", "worl"));
-	return (0);
+	int	div;
+	int	mod;
+
+	ft_div_mod(5, 2, &mod, &div);
 }
+*/
 
-char	*ft_strstr(char *str, char *to_find)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	printf("%p\n", str);
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == to_find[j])
-		{
-			if (to_find[j + 1] == '\0')
-				return (&str[i - j]);
-			j++;
-		}
-		else
-			j = 0;
-		i++;
-	}
-	return (NULL);
+	*div = a / b;
+	*mod = a % b;
 }

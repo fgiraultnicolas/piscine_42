@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgirault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/15 06:00:39 by fgirault          #+#    #+#             */
-/*   Updated: 2026/09/15 13:03:21 by fgirault         ###   ########.fr       */
+/*   Created: 2026/09/14 09:47:15 by fgirault          #+#    #+#             */
+/*   Updated: 2026/09/15 05:15:53 by fgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
-char	*ft_strstr(char *str, char *to_find);
+char	*ft_strlowcase(char *str);
 
-int	main(void)
+/*int	main(void)
 {
-	printf("%p", ft_strstr("hello worle", "worl"));
+	char	str[] = "tEST";
+
+	printf("%s", ft_strlowcase(str));
 	return (0);
-}
+}*/
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strlowcase(char *str)
 {
-	printf("%p\n", str);
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == to_find[j])
-		{
-			if (to_find[j + 1] == '\0')
-				return (&str[i - j]);
-			j++;
-		}
-		else
-			j = 0;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
 		i++;
 	}
-	return (NULL);
+	return (str);
 }

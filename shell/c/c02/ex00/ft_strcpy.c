@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgirault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/15 06:00:39 by fgirault          #+#    #+#             */
-/*   Updated: 2026/09/15 13:03:21 by fgirault         ###   ########.fr       */
+/*   Created: 2026/09/14 05:27:41 by fgirault          #+#    #+#             */
+/*   Updated: 2026/09/14 06:13:20 by fgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
-char	*ft_strstr(char *str, char *to_find);
+char	*ft_strcpy(char *dest, char *src);
 
-int	main(void)
+/*int	main(void)
 {
-	printf("%p", ft_strstr("hello worle", "worl"));
+	char	dest[] = "Hello World";
+	char	src[] = "test";
+
+	ft_strcpy(dest, src);
 	return (0);
-}
+}*/
 
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strcpy(char *dest, char *src)
 {
-	printf("%p\n", str);
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
-	while (str[i] != '\0')
+	while (src[i] != '\0')
 	{
-		if (str[i] == to_find[j])
-		{
-			if (to_find[j + 1] == '\0')
-				return (&str[i - j]);
-			j++;
-		}
-		else
-			j = 0;
+		dest[i] = src[i];
 		i++;
 	}
-	return (NULL);
+	dest[i] = src[i];
+	return (dest);
 }

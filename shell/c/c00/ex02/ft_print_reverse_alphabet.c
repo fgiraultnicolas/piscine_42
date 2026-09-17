@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgirault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/15 06:00:39 by fgirault          #+#    #+#             */
-/*   Updated: 2026/09/15 13:03:21 by fgirault         ###   ########.fr       */
+/*   Created: 2026/09/10 05:38:58 by fgirault          #+#    #+#             */
+/*   Updated: 2026/09/16 14:29:01 by fgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find);
+void	ft_print_reverse_alphabet(void);
 
-int	main(void)
+/*int	main(void)
 {
-	printf("%p", ft_strstr("hello worle", "worl"));
+	ft_print_reverse_alphabet();
 	return (0);
-}
+}*/
 
-char	*ft_strstr(char *str, char *to_find)
+void	ft_print_reverse_alphabet(void)
 {
-	printf("%p\n", str);
-	int	i;
-	int	j;
+	char	c;
 
-	i = 0;
-	j = 0;
-	while (str[i] != '\0')
+	c = 'z';
+	while (c >= 'a')
 	{
-		if (str[i] == to_find[j])
-		{
-			if (to_find[j + 1] == '\0')
-				return (&str[i - j]);
-			j++;
-		}
-		else
-			j = 0;
-		i++;
+		write(1, &c, 1);
+		c--;
 	}
-	return (NULL);
 }

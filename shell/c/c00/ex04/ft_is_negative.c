@@ -1,44 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgirault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/15 06:00:39 by fgirault          #+#    #+#             */
-/*   Updated: 2026/09/15 13:03:21 by fgirault         ###   ########.fr       */
+/*   Created: 2026/09/10 07:28:37 by fgirault          #+#    #+#             */
+/*   Updated: 2026/09/15 14:27:26 by fgirault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find);
+void	ft_is_negative(int n);
 
-int	main(void)
+/*int	main(void)
 {
-	printf("%p", ft_strstr("hello worle", "worl"));
+	ft_is_negative(26);
+	ft_is_negative(0);
+	ft_is_negative(-5);
 	return (0);
-}
+}*/
 
-char	*ft_strstr(char *str, char *to_find)
+void	ft_is_negative(int n)
 {
-	printf("%p\n", str);
-	int	i;
-	int	j;
+	char	c;
 
-	i = 0;
-	j = 0;
-	while (str[i] != '\0')
+	if (n < 0)
 	{
-		if (str[i] == to_find[j])
-		{
-			if (to_find[j + 1] == '\0')
-				return (&str[i - j]);
-			j++;
-		}
-		else
-			j = 0;
-		i++;
+		c = 'N';
+		write(1, &c, 1);
 	}
-	return (NULL);
+	else
+	{
+		c = 'P';
+		write(1, &c, 1);
+	}
 }
